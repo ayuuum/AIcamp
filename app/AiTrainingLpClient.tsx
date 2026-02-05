@@ -138,22 +138,28 @@ export default function AiTrainingLpClient() {
                     <h2 className={styles.title}>選ばれる3つの理由</h2>
                 </ScrollReveal>
 
-                {['実務直結のカスタマイズ研修', '助成金申請フルサポート', '継続的な定着支援'].map((title, i) => (
+                {[
+                    { title: '実務直結のカスタマイズ研修', description: '「AIとは何か」といった概論は最小限に。貴社の実際の業務データ（ダミー）を使い、「明日から使えるプロンプト」をその場で作るワークショップ形式です。', image: '/feature_training.png' },
+                    { title: '助成金申請フルサポート', description: '「人材開発支援助成金」の対象となるプログラムです。面倒な計画届の作成から、実施後の報告まで、提携社労士と共にワンストップで支援し、導入コストを大幅に削減します。', image: '/feature_subsidy.png' },
+                    { title: '継続的な定着支援', description: '研修はゴールではありません。Slack/TeamsでのQ&A対応や、月1回のフォローアップ勉強会を通じ、現場での「使いこなし」が定着するまで伴走します。', image: '/feature_support.png' }
+                ].map((item, i) => (
                     <ScrollReveal key={i}>
                         <div className={styles.featureItem} style={{ marginBottom: i === 2 ? 0 : '6rem' }}>
                             <div className={styles.featureText}>
                                 <div className={styles.featureNumber}>0{i + 1}</div>
-                                <h3 className={styles.featureTitle}>{title}</h3>
+                                <h3 className={styles.featureTitle}>{item.title}</h3>
                                 <p>
-                                    {i === 0 && '「AIとは何か」といった概論は最小限に。貴社の実際の業務データ（ダミー）を使い、「明日から使えるプロンプト」をその場で作るワークショップ形式です。'}
-                                    {i === 1 && '「人材開発支援助成金」の対象となるプログラムです。面倒な計画届の作成から、実施後の報告まで、提携社労士と共にワンストップで支援し、導入コストを大幅に削減します。'}
-                                    {i === 2 && '研修はゴールではありません。Slack/TeamsでのQ&A対応や、月1回のフォローアップ勉強会を通じ、現場での「使いこなし」が定着するまで伴走します。'}
+                                    {item.description}
                                 </p>
                             </div>
                             <div className={styles.featureImage}>
-                                {/* Feature Image Placeholder - can be polished later */}
-                                <div style={{ height: '300px', background: 'white', borderRadius: '12px', border: '1px solid #e2e8f0', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#94a3b8' }}>
-                                    Image Area 0{i + 1}
+                                <div style={{ position: 'relative', width: '100%', height: '300px', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}>
+                                    <Image
+                                        src={item.image}
+                                        alt={item.title}
+                                        fill
+                                        style={{ objectFit: 'cover' }}
+                                    />
                                 </div>
                             </div>
                         </div>
