@@ -1,0 +1,1 @@
+(Place holder for OGP image - in a real scenario I'd generate one or copy the hero, but I'll use the hero image resource I moved earlier)
